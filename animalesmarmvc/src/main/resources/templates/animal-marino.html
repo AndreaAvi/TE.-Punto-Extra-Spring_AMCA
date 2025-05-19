@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: head">
+  <meta charset="UTF-8">
+  <title>Animal Marino</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<nav th:replace="index :: navbar"></nav>
+
+<main class="container my-4 d-flex flex-column align-items-center">
+  <h1 class="mb-4 text-center">Especie: <span th:text="${animalMarino.especie}"></span></h1>
+  <div class="card" style="width: 18rem;">
+    <img th:src="${animalMarino.imagen}" class="card-img-top" th:alt="'Imagen de ' + ${animalMarino.especie}">
+    <div class="card-body text-center">
+      <h5 class="card-title" th:text="${animalMarino.especie}"></h5>
+      <p class="card-text text-start">
+        <strong>Tamaño promedio:</strong> <span th:text="${animalMarino.tamañoPromedio} + ' m'"></span><br/>
+        <strong>Profundidad de hábitat:</strong> <span th:text="${animalMarino.profundidadHabitat}"></span><br/>
+        <strong>Tipo de alimentación:</strong> <span th:text="${animalMarino.tipoAlimentacion}"></span><br/>
+        <strong>Zona geográfica:</strong> <span th:text="${animalMarino.zonaGeografica}"></span><br/>
+        <strong>Modo de desplazamiento:</strong> <span th:text="${animalMarino.modoDesplazamiento}"></span><br/>
+        <strong>Esperanza de vida:</strong> <span th:text="${animalMarino.esperanzaVida} + ' años'"></span><br/>
+        <strong>Estado de conservación:</strong> <span th:text="${animalMarino.estadoConservacion}"></span><br/>
+      </p>
+      <a th:href="${animalMarino.urlInformacion}" target="_blank" class="btn btn-primary">Más información</a>
+    </div>
+  </div>
+</main>
+
+
+<footer th:replace="index :: footer"></footer>
+<div th:replace="index :: jsincludes"></div>
+</body>
+</html>
