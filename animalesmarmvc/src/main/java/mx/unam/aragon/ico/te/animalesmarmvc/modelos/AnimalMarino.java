@@ -9,7 +9,7 @@ public class AnimalMarino {
     private String zonaGeografica;
     private String modoDesplazamiento;
     private int esperanzaVida; // en años
-    private String estadoConservacion; 
+    private String estadoConservacion;
     private String urlInformacion;
     private String imagen;
 
