@@ -8,13 +8,13 @@
 <nav th:replace="index :: navbar"></nav>
 
 <main class="container my-4 d-flex flex-column align-items-center">
-  <h1 class="mb-4 text-center">Especie: <span th:text="${animalMarino.especie}"></span></h1>
+  <h1 class="mb-4 text-center">Animales marinos</h1>
   <div class="card" style="width: 18rem;">
     <img th:src="${animalMarino.imagen}" class="card-img-top" th:alt="'Imagen de ' + ${animalMarino.especie}">
     <div class="card-body text-center">
       <h5 class="card-title" th:text="${animalMarino.especie}"></h5>
       <p class="card-text text-start">
-        <strong>Tamaño promedio:</strong> <span th:text="${animalMarino.tamañoPromedio} + ' m'"></span><br/>
+        <strong>Tamaño promedio:</strong> <span th:text="${animalMarino.tamanioPromedio} + ' m'"></span><br/>
         <strong>Profundidad de hábitat:</strong> <span th:text="${animalMarino.profundidadHabitat}"></span><br/>
         <strong>Tipo de alimentación:</strong> <span th:text="${animalMarino.tipoAlimentacion}"></span><br/>
         <strong>Zona geográfica:</strong> <span th:text="${animalMarino.zonaGeografica}"></span><br/>

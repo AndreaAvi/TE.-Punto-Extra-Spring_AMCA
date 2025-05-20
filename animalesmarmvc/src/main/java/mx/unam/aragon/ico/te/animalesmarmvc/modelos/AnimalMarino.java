@@ -1,26 +1,57 @@
 package mx.unam.aragon.ico.te.animalesmarmvc.modelos;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "animales_marinos")
 public class AnimalMarino {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(length = 100, nullable = false)
     private String especie;
-    private double tamañoPromedio; // en metros
-    private String profundidadHabitat; // en metros
+
+    @Column(name = "tamanio_promedio", nullable = false)
+    private double tamanioPromedio; // en metros
+
+    @Column(name = "profundidad_habitat", length = 50)
+    private String profundidadHabitat; // en metros, texto como "200-1000m"
+
+    @Column(name = "tipo_alimentacion", length = 50)
     private String tipoAlimentacion;
+
+    @Column(name = "zona_geografica", length = 100)
     private String zonaGeografica;
+
+    @Column(name = "modo_desplazamiento", length = 50)
     private String modoDesplazamiento;
+
+    @Column(name = "esperanza_vida")
     private int esperanzaVida; // en años
+
+    @Column(name = "estado_conservacion", length = 50)
     private String estadoConservacion;
+
+    @Column(name = "url_informacion", length = 255)
     private String urlInformacion;
-    private String imagen;
+
+    @Column(length = 255)
+    private String imagen; // URL o path local
 
     public AnimalMarino() {
     }
 
-    public AnimalMarino(int id, String especie, double tamañoPromedio, String profundidadHabitat, String tipoAlimentacion, String zonaGeografica, String modoDesplazamiento, int esperanzaVida, String estadoConservacion, String urlInformacion, String imagen) {
+    public AnimalMarino(int id, String especie, double tamanioPromedio, String profundidadHabitat, String tipoAlimentacion, String zonaGeografica, String modoDesplazamiento, int esperanzaVida, String estadoConservacion, String urlInformacion, String imagen) {
         this.id = id;
         this.especie = especie;
-        this.tamañoPromedio = tamañoPromedio;
+        this.tamanioPromedio = tamanioPromedio;
         this.profundidadHabitat = profundidadHabitat;
         this.tipoAlimentacion = tipoAlimentacion;
         this.zonaGeografica = zonaGeografica;
@@ -47,12 +78,12 @@ public class AnimalMarino {
         this.especie = especie;
     }
 
-    public double getTamañoPromedio() {
-        return tamañoPromedio;
+    public double getTamanioPromedio() {
+        return tamanioPromedio;
     }
 
-    public void setTamañoPromedio(double tamañoPromedio) {
-        this.tamañoPromedio = tamañoPromedio;
+    public void setTamanioPromedio(double tamañoPromedio) {
+        this.tamanioPromedio = tamañoPromedio;
     }
 
     public String getProfundidadHabitat() {
@@ -124,7 +155,7 @@ public class AnimalMarino {
         return "AnimalMarino{" +
                 "id=" + id +
                 ", especie='" + especie + '\'' +
-                ", tamañoPromedio=" + tamañoPromedio +
+                ", tamañoPromedio=" + tamanioPromedio +
                 ", profundidadHabitat='" + profundidadHabitat + '\'' +
                 ", tipoAlimentacion='" + tipoAlimentacion + '\'' +
                 ", zonaGeografica='" + zonaGeografica + '\'' +

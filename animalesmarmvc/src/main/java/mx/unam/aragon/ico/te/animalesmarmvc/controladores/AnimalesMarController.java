@@ -1,7 +1,10 @@
 package mx.unam.aragon.ico.te.animalesmarmvc.controladores;
 
 import mx.unam.aragon.ico.te.animalesmarmvc.modelos.AnimalMarino;
+import mx.unam.aragon.ico.te.animalesmarmvc.repositorios.AnimalMarRepository;
+import mx.unam.aragon.ico.te.animalesmarmvc.servicios.AnimalMarService;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/enciclopedia/")
 public class AnimalesMarController {
+    @Autowired
+    private AnimalMarService animalMarService;
+    @Autowired
+    private AnimalMarRepository animalMarRepository;
+
     @GetMapping("/home/")
     public String home(){
         return "home";
@@ -58,6 +66,13 @@ public class AnimalesMarController {
             @ModelAttribute AnimalMarino animalMarino
     ){
         LoggerFactory.getLogger(getClass()).info("Se ha guardado un animal marino: " + animalMarino);
+        animalMarService.guardarAnimalMarino(animalMarino);
         return "redirect:/enciclopedia/nuevo?exito";
+    }
+
+    @GetMapping("/animal-marino/{id}")
+    public String animalMarino(@PathVariable Integer id, Model model){
+        model.addAttribute("animalMarino",animalMarService.getAnimalMarino(id));
+        return "animal-marino";
     }
 }
