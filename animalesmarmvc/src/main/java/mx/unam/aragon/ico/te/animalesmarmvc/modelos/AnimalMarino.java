@@ -2,6 +2,7 @@ package mx.unam.aragon.ico.te.animalesmarmvc.modelos;
 
 public class AnimalMarino {
 
+    private int id;
     private String especie;
     private double tamañoPromedio; // en metros
     private String profundidadHabitat; // en metros
@@ -16,7 +17,8 @@ public class AnimalMarino {
     public AnimalMarino() {
     }
 
-    public AnimalMarino(String especie, double tamañoPromedio, String profundidadHabitat, String tipoAlimentacion, String zonaGeografica, String modoDesplazamiento, int esperanzaVida, String estadoConservacion, String urlInformacion, String imagen) {
+    public AnimalMarino(int id, String especie, double tamañoPromedio, String profundidadHabitat, String tipoAlimentacion, String zonaGeografica, String modoDesplazamiento, int esperanzaVida, String estadoConservacion, String urlInformacion, String imagen) {
+        this.id = id;
         this.especie = especie;
         this.tamañoPromedio = tamañoPromedio;
         this.profundidadHabitat = profundidadHabitat;
@@ -27,6 +29,14 @@ public class AnimalMarino {
         this.estadoConservacion = estadoConservacion;
         this.urlInformacion = urlInformacion;
         this.imagen = imagen;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEspecie() {
@@ -112,7 +122,8 @@ public class AnimalMarino {
     @Override
     public String toString() {
         return "AnimalMarino{" +
-                "especie='" + especie + '\'' +
+                "id=" + id +
+                ", especie='" + especie + '\'' +
                 ", tamañoPromedio=" + tamañoPromedio +
                 ", profundidadHabitat='" + profundidadHabitat + '\'' +
                 ", tipoAlimentacion='" + tipoAlimentacion + '\'' +
